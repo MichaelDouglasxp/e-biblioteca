@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<title>e-Biblioteca</title>
+</head>
+
+<body>
+	<h1>Alterar dados do livro</h1>
+	<form th:object="${livro}" th:action="@{/atualizar/{codigo}(codigo=${livro.codigo})}" method=post>
+		Título: <input type="text" th:field="${livro.titulo}" name="titulo"/><br/>
+		ISBN: <input type="text" th:field="${livro.isbn}" name="isbn"/><br/>
+		Autor <input type="text" th:field="${livro.autor}" name="autor"/><br/>
+		Edicao: <input type="text" th:field="${livro.edicao}" name="edicao"/><br/>
+		Editora: <input type="text" th:field="${livro.editora}" name="editora"/><br/>
+		Ano de Publicacao <input type="text" th:field="${livro.anoPublicacao}" name="anoPublicacao"/><br/>
+		<button type="submit">Salvar alterações</button>
+	</form>
+</body>
+
+</html>

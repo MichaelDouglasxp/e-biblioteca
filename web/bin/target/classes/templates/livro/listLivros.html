@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<title>e-Biblioteca</title>
+</head>
+
+<body>
+	<h1>Livros cadastrados</h1>
+	<table border="1 px">
+		<thead>
+			<tr>
+				<th>Título</th>
+				<th>ISBN</th>
+				<th>Autor</th>
+				<th>Edição</th>
+				<th>Editora</th>
+				<th>Ano de Publicação</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="livro : ${livros}">
+				<td><a th:href="${(#mvc.url('LC#detalhesLivro').arg(0, livro.codigo)).build()}"><span th:text="${livro.titulo}"></span></a></td>
+				<td><span th:text="${livro.isbn}"></span></td>
+				<td><span th:text="${livro.autor}"></span></td>
+				<td><span th:text="${livro.edicao}"></span></td>
+				<td><span th:text="${livro.editora}"></span></td>
+				<td><span th:text="${livro.anoPublicacao}"></span></td>
+				<td><a th:href="${(#mvc.url('LC#deletarLivro').arg(0, livro.codigo)).build()}">Excluir</a></td>
+			</tr>
+		</tbody>
+	
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8">
+	<title>e-Biblioteca</title>
+</head>
+
+<body>
+	<h1>Alunos cadastrados</h1>
+	<table border="1 px">
+		<thead>
+			<tr>
+				<th>Matrícula</th>
+				<th>Nome</th>
+				<th>Excluir</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="aluno : ${alunos}">
+				<td><a th:href="${(#mvc.url('AC#detalhesAluno').arg(0, aluno.codigo)).build()}"><span th:text="${aluno.matricula}"></span></a></td>
+				<td><span th:text="${aluno.matricula}"></span></td>
+				<td><span th:text="${aluno.nome}"></span></td>
+				<td><a th:href="${(#mvc.url('AC#deletarAluno').arg(0, aluno.codigo)).build()}">Excluir</a></td>
+			</tr>
+		</tbody>
+	
+	</table>
+</body>
+
+</html>
