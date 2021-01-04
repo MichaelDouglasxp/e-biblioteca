@@ -13,7 +13,8 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<form th:object="${aluno}" th:action="@{/aluno/atualizar/{codigo}(codigo=${aluno.codigo})}" method=post>
 		Matrícula: <input type="text" th:field="${aluno.matricula}" name="matricula"/><br/>
 		Nome: <input type="text" th:field="${aluno.nome}" name="nome"/><br/>
-		<button type="submit">Salvas alterações</button>
+		<button type="submit">Salvas alterações</button><br>
+		<a href="/">Menu inicial</a>
 	</form>
 </body>
 
